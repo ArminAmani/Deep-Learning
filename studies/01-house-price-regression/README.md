@@ -51,7 +51,7 @@ For the regression workflow, the following numerical variables are selected:
 
 The preprocessing workflow includes:
 
-1. Inspection of dataset structure and missing values
+1. Inspection of the dataset structure and missing values
 2. Selection of numerical variables relevant to the regression task
 3. Outlier analysis using the Interquartile Range (IQR)
 4. Removal of observations outside the defined IQR bounds for the selected input features
@@ -91,20 +91,25 @@ Dense (64, ReLU)
 Dense (16, ReLU)
         ↓
 Dense (1)
+```
 
 Training configuration:
 
-Optimizer: Adam
-Learning rate: 0.1
-Loss function: Mean Squared Error
-Monitoring metric: Mean Absolute Error
-Epochs: 300
-Batch size: 16
-Validation split: 0.3
-Model 2 — Feedforward Network with Dropout
+- Optimizer: Adam
+- Learning rate: `0.1`
+- Loss function: Mean Squared Error
+- Monitoring metric: Mean Absolute Error
+- Epochs: `300`
+- Batch size: `16`
+- Validation split: `0.3`
 
-The second model introduces Dropout regularization within a deeper architecture:
+---
 
+### Model 2 — Feedforward Network with Dropout
+
+The second model introduces Dropout regularization within a deeper fully connected architecture:
+
+```text
 Input (5 features)
         ↓
 Dense (5, ReLU)
@@ -124,65 +129,83 @@ Dense (16, ReLU)
 Dropout (0.2)
         ↓
 Dense (1)
+```
 
 Training configuration:
 
-Optimizer: Adam
-Learning rate: 0.001
-Loss function: Mean Squared Error
-Monitoring metric: Mean Absolute Error
-Epochs: 500
-Batch size: 32
-Validation split: 0.3
-📈 Evaluation
+- Optimizer: Adam
+- Learning rate: `0.001`
+- Loss function: Mean Squared Error
+- Monitoring metric: Mean Absolute Error
+- Epochs: `500`
+- Batch size: `32`
+- Validation split: `0.3`
 
-Model performance is evaluated on the held-out test set using the coefficient of determination (R² score).
+---
 
-Model	Test R²
-Baseline Feedforward Network	0.3751
-Network with Dropout	0.2920
+## 📈 Evaluation
 
-For the configurations evaluated in this study, the baseline model achieved the higher test-set R² score.
+Model performance is evaluated on the held-out test set using the coefficient of determination (**R² score**).
+
+| Model | Test R² |
+| --- | ---: |
+| Baseline Feedforward Network | **0.3751** |
+| Feedforward Network with Dropout | **0.2920** |
+
+For the configurations evaluated in this study, the baseline feedforward network achieved the higher test-set R² score.
 
 It is important to note that the two models differ not only in the use of Dropout, but also in architecture, learning rate, batch size, and number of training epochs. Therefore, the comparison represents the performance of two different neural-network configurations rather than a controlled measurement of the isolated effect of Dropout.
 
-📉 Training Analysis
+---
 
-Training and validation histories are recorded during model fitting and visualized to examine the optimization behavior of the neural networks.
+## 📉 Training Analysis
 
-These plots help assess:
+Training and validation histories are recorded during model fitting and visualized to examine the optimization behavior of both neural-network configurations.
 
-Training progression
-Validation behavior
-Differences between the two model configurations
-Potential generalization limitations
-💡 Key Concepts
+The recorded histories support analysis of:
+
+- Training progression
+- Validation behavior
+- Differences between the two model configurations
+- Potential generalization limitations
+
+---
+
+## 💡 Key Concepts
 
 This study demonstrates:
 
-Neural networks for regression
-Tabular-data preprocessing
-Numerical feature selection
-IQR-based outlier filtering
-Train/test splitting
-Feature standardization
-Fully connected neural networks
-ReLU activation
-Dropout regularization
-Adam optimization
-Mean Squared Error loss
-Mean Absolute Error monitoring
-R²-based evaluation
-Training-history analysis
-🧰 Technologies
-Python
-Jupyter Notebook
-TensorFlow / Keras
-NumPy
-Pandas
-Scikit-learn
-Matplotlib
-Seaborn
-📁 Files
-house-price-regression.ipynb — Complete implementation of data preprocessing, neural-network development, training, evaluation, and visualization.
-House_Price_dataset.csv — Dataset used for the house-price regression study.
+- Neural networks for regression
+- Tabular-data preprocessing
+- Numerical feature selection
+- IQR-based outlier filtering
+- Train/test splitting
+- Feature standardization
+- Fully connected neural networks
+- ReLU activation
+- Dropout regularization
+- Adam optimization
+- Mean Squared Error loss
+- Mean Absolute Error monitoring
+- R²-based regression evaluation
+- Training-history analysis
+
+---
+
+## 🧰 Technologies
+
+- Python
+- Jupyter Notebook
+- TensorFlow / Keras
+- NumPy
+- Pandas
+- Scikit-learn
+- Matplotlib
+- Seaborn
+
+---
+
+## 📁 Files
+
+- [`house-price-regression.ipynb`](./house-price-regression.ipynb) — Complete implementation of data preprocessing, neural-network development, training, evaluation, and visualization.
+- [`House_Price_dataset.csv`](./House_Price_dataset.csv) — Dataset used for the house-price regression study.
