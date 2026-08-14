@@ -1,28 +1,31 @@
 # Deep Learning
 
-A growing technical repository for deep learning implementations, experiments, studies, and applied projects across neural networks, computer vision, sequence modeling, representation learning, attention mechanisms, and related areas.
+A growing technical repository for deep learning implementations, computational studies, experiments, and applied projects across neural networks, computer vision, sequence modeling, attention mechanisms, representation learning, and related areas.
 
-The repository is intended to evolve over time as new models, datasets, experiments, and engineering-oriented deep learning applications are developed and documented.
+The repository is designed to evolve over time as new models, datasets, experiments, and engineering-oriented applications are developed and documented.
 
 ---
 
 ## 📌 Overview
 
-This repository documents my ongoing work in deep learning through practical implementations and structured computational studies.
+This repository documents my ongoing work in deep learning through both focused computational studies and broader applied projects.
 
 The current material covers several fundamental and applied topics, including:
 
 - Feed-forward neural networks
-- Regression with neural networks
+- Neural-network regression
 - Multi-class image classification
 - Regularization and generalization
 - Convolutional neural networks
+- Transfer learning and fine-tuning
+- Computer vision with OpenCV
+- ResNet-based image classification
 - Time-series modeling with LSTM networks
 - Attention-based and Transformer-style architectures
 - Imbalanced binary classification
 - Model evaluation and diagnostic analysis
 
-The repository is **not limited to the studies currently available**. Future additions may include larger projects, standalone implementations, comparative experiments, engineering applications, and more advanced deep learning architectures.
+The repository is **not limited to the material currently available**. Future additions may include larger end-to-end projects, standalone implementations, comparative experiments, advanced architectures, scientific machine learning, and engineering-oriented AI applications.
 
 ---
 
@@ -34,10 +37,24 @@ The main goals of this repository are to:
 - Explore the behavior of different neural-network architectures
 - Study training, regularization, optimization, and generalization
 - Apply deep learning methods to structured, image, sequential, and time-series data
+- Explore classical and deep learning approaches to computer vision
 - Evaluate models using appropriate quantitative and visual diagnostics
-- Document methodological limitations and implementation choices clearly
-- Build a structured and continuously expanding deep learning portfolio
-- Explore future applications of artificial intelligence in scientific and engineering problems
+- Document methodological choices and limitations clearly
+- Build a structured and continuously expanding technical portfolio
+- Explore applications of artificial intelligence in scientific and engineering problems
+
+---
+
+## 🗂️ Repository Organization
+
+The repository currently uses two primary sections:
+
+| Directory | Purpose |
+| --- | --- |
+| [`studies/`](./studies/) | Focused computational studies exploring specific deep learning concepts, architectures, and modeling workflows |
+| [`projects/`](./projects/) | Broader applied projects organized around practical problems and potentially combining multiple computational approaches |
+
+Additional sections may be introduced as the repository expands.
 
 ---
 
@@ -48,6 +65,15 @@ Deep-Learning/
 │
 ├── README.md
 ├── .gitignore
+│
+├── projects/
+│   ├── README.md
+│   │
+│   └── 01-vehicle-color-recognition/
+│       ├── README.md
+│       └── notebooks/
+│           ├── color-detection-opencv.ipynb
+│           └── vehicle-color-recognition-resnet50.ipynb
 │
 └── studies/
     ├── README.md
@@ -79,13 +105,44 @@ Deep-Learning/
         └── credit-card-fraud-transformer.ipynb
 ```
 
-The structure will expand as additional work is added to the repository.
+This structure represents the current state of the repository and will expand as additional work is added.
+
+---
+
+## 🚀 Current Applied Projects
+
+The [`projects/`](./projects/) directory contains broader application-oriented work that may combine multiple techniques within a single problem.
+
+| # | Project | Main Focus |
+| --- | --- | --- |
+| 01 | [Vehicle Color Recognition](./projects/01-vehicle-color-recognition/) | Rule-based real-time color detection with OpenCV and deep learning-based vehicle color classification using an ImageNet-initialized ResNet50 |
+
+### Vehicle Color Recognition
+
+This project explores two complementary computer-vision approaches:
+
+1. **Rule-based real-time color identification**
+   - Webcam-based image acquisition
+   - BGR-to-HSV conversion
+   - Center-pixel sampling
+   - HSV threshold-based color identification
+   - OpenCV visualization
+
+2. **Deep learning-based vehicle color classification**
+   - 15-class image classification
+   - ResNet50
+   - ImageNet initialization
+   - End-to-end fine-tuning
+   - Data augmentation
+   - Per-class precision, recall, and F-score analysis
+
+The project demonstrates the contrast between classical rule-based computer vision and learned visual representations.
 
 ---
 
 ## 🧠 Current Deep Learning Studies
 
-The `studies/` directory contains focused implementations exploring individual deep learning concepts, architectures, and modeling workflows.
+The [`studies/`](./studies/) directory contains focused implementations exploring individual deep learning concepts, architectures, and modeling workflows.
 
 | # | Study | Main Focus |
 | --- | --- | --- |
@@ -96,16 +153,17 @@ The `studies/` directory contains focused implementations exploring individual d
 | 05 | [Stock Price Forecasting with LSTM](./studies/05-stock-price-forecasting-lstm/) | Sequential modeling and time-series forecasting with stacked LSTM networks |
 | 06 | [Credit Card Fraud Classification with Transformer-Style Attention](./studies/06-credit-card-fraud-transformer-classification/) | Multi-head attention and Transformer-inspired modeling for imbalanced tabular classification |
 
-Each study contains its own README with details about:
+Individual study and project READMEs provide more detailed information about:
 
 - Problem formulation
 - Dataset
 - Data preprocessing
-- Model architecture
+- Architecture and implementation
 - Training configuration
-- Evaluation
+- Evaluation methodology
 - Results
 - Methodological considerations
+- Reproducibility
 - Technologies and key concepts
 
 ---
@@ -123,12 +181,18 @@ Each study contains its own README with details about:
 
 ### Computer Vision
 
+- Real-time color identification
+- OpenCV
+- HSV color-space processing
 - CIFAR-10 image classification
 - Convolutional neural networks
+- ResNet50
+- ImageNet initialization
+- Transfer learning and fine-tuning
 - Image normalization
 - Data augmentation
-- Feature extraction through convolution
-- Fully connected versus convolutional architectures
+- Learned visual representations
+- Fully connected versus convolutional image models
 
 ### Regularization & Generalization
 
@@ -176,6 +240,7 @@ Depending on the problem, evaluation methods include:
 - AUC
 - Training and validation curves
 - Prediction visualizations
+- Class-level performance analysis
 
 ---
 
@@ -189,13 +254,18 @@ The repository primarily uses:
 - Jupyter Notebook
 - Git
 - GitHub
+- Google Colab
 
 ### Deep Learning
 
 - TensorFlow
 - Keras
 
-### Data Processing
+### Computer Vision
+
+- OpenCV
+
+### Data Processing & Machine Learning
 
 - NumPy
 - Pandas
@@ -210,7 +280,7 @@ The repository primarily uses:
 - Matplotlib
 - Seaborn
 
-Additional libraries and frameworks may be introduced as the repository expands.
+Additional libraries, frameworks, and computational tools may be introduced as the repository expands.
 
 ---
 
@@ -227,9 +297,9 @@ Exploratory Analysis
         ↓
 Data Preprocessing
         ↓
-Model Design
+Model / Method Design
         ↓
-Training
+Training or Implementation
         ↓
 Validation
         ↓
@@ -243,19 +313,21 @@ Documentation
 The emphasis is not only on obtaining model outputs, but also on understanding:
 
 - How the data is prepared
-- Why a model architecture behaves in a particular way
+- Why a particular method or architecture is selected
+- How model architecture affects behavior
 - How training and validation performance differ
 - Whether regularization improves generalization
 - Which evaluation metrics are appropriate for the problem
 - What methodological limitations affect interpretation of the results
+- How classical computational approaches compare with learned models when relevant
 
 ---
 
 ## ⚠️ Methodological Transparency
 
-The implementations in this repository are documented as computational studies and experiments.
+The implementations in this repository are documented as computational studies, experiments, and applied projects.
 
-Where relevant, individual study READMEs explicitly discuss issues such as:
+Where relevant, individual READMEs explicitly discuss issues such as:
 
 - Data leakage
 - Validation methodology
@@ -263,30 +335,39 @@ Where relevant, individual study READMEs explicitly discuss issues such as:
 - Class imbalance
 - Scaling methodology
 - Non-isolated model comparisons
+- Training-pipeline limitations
+- Dataset availability
 - Limitations of individual evaluation metrics
 - Implementation-specific evaluation issues
 
-Recorded numerical results should therefore be interpreted within the methodology of each individual study rather than as universal benchmark results.
+Recorded numerical results should therefore be interpreted within the methodology of each individual study or project rather than as universal benchmark results.
 
-This approach is intentional: documenting limitations is an important part of developing reliable machine-learning and deep-learning workflows.
+Documenting these limitations is an important part of developing reliable machine-learning and deep-learning workflows.
 
 ---
 
 ## 📊 Data and Reproducibility
 
-Datasets are handled according to their size and practical storage requirements.
+Datasets are handled according to their size, source, and practical storage requirements.
 
 Small datasets may be included directly when appropriate.
 
-Large datasets may be excluded from Git tracking because of repository hosting limitations. In such cases, the corresponding study README provides information about the expected dataset and local file structure.
+Large datasets or externally organized image collections may be excluded from Git tracking because of storage limitations or dataset-specific requirements.
 
-Some notebooks may therefore require locally available data before they can be executed from beginning to end.
+In these cases, the corresponding project or study README describes:
+
+- Expected dataset organization
+- Required local paths where applicable
+- Relevant preprocessing
+- Execution requirements
+
+Some notebooks therefore require locally available or externally mounted data before they can be executed from beginning to end.
 
 ---
 
 ## 🚀 Future Development
 
-This repository is designed to grow beyond the current collection of studies.
+This repository is designed to grow beyond the current collection of studies and projects.
 
 Potential future additions may include:
 
@@ -294,12 +375,14 @@ Potential future additions may include:
 - Larger end-to-end projects
 - Comparative architecture experiments
 - Advanced convolutional architectures
-- Transfer learning
+- Transfer-learning studies
 - Representation learning
 - Autoencoders
 - Advanced recurrent architectures
 - Transformer models
 - Attention-based sequence models
+- Object detection
+- Advanced computer-vision workflows
 - Scientific machine learning
 - Physics-informed learning
 - Deep learning for engineering data
@@ -309,7 +392,7 @@ Potential future additions may include:
 - Aerospace and mechanical engineering applications
 - Optimization and AI-assisted engineering workflows
 
-New sections and directories will be introduced when corresponding implementations are added.
+New directories and organizational sections will be introduced when corresponding implementations are added.
 
 ---
 
@@ -318,15 +401,15 @@ New sections and directories will be introduced when corresponding implementatio
 The repository is developed around three principles:
 
 **Implementation**  
-Build and understand deep learning models through practical computational work.
+Build and understand deep learning models and computational methods through practical work.
 
 **Evaluation**  
 Analyze model behavior using suitable metrics, diagnostics, and validation procedures.
 
 **Documentation**  
-Present the methodology, results, and limitations of each implementation clearly and reproducibly.
+Present the methodology, results, limitations, and reproducibility considerations of each implementation clearly.
 
-The long-term objective is to develop a technically organized collection of deep learning work that connects data-driven methods with scientific and engineering applications.
+The long-term objective is to develop a technically organized collection of deep learning and AI work that connects data-driven methods with scientific and engineering applications.
 
 ---
 
@@ -334,7 +417,13 @@ The long-term objective is to develop a technically organized collection of deep
 
 This repository is actively evolving.
 
-The current `studies/` collection represents the initial structured set of deep learning implementations. Additional experiments, projects, architectures, and engineering-oriented applications may be incorporated over time.
+The current content includes:
+
+- A structured collection of focused deep learning studies
+- An expanding section of applied projects
+- Implementations spanning structured data, image data, time series, computer vision, recurrent networks, convolutional networks, and attention-based architectures
+
+Additional studies, projects, experiments, architectures, and engineering-oriented applications may be incorporated over time.
 
 ---
 
